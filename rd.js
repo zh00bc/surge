@@ -1,3 +1,5 @@
-let json = JSON.parse($response.body);
-json["data"]["html"] = "<div>test</div>";
-$done({body: JSON.stringify(json)});
+let jsonData = JSON.parse($response.body);
+jsonData.data.forEach(item => {
+    item.html = "<div>test</div>";
+});
+$done({body: JSON.stringify(jsonData)});
